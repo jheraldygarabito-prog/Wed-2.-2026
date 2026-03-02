@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11 REMOVECHILD </title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="eleminado">Eliminar</div>
+    </div>
+    <script>
+       const elementoEliminado = document.getElementById('eleminado');
+       const elementoPadre=elementoEliminado.parentElement;//identificar el elemento padre 
+       elementoPadre.removeChild(elementoEliminado);
+    </script>
+</body>   
+</html>

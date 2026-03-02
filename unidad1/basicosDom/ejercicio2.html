@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 seleccion de elementos llamado por clase </title>
+</head>
+<body>
+   <div class="clase-1">elemento1</div>
+    <div class="clase-1">elemento2</div>
+    <div class="clase-1">elemento3</div>
+    <script>
+        // Obtener los elementos por su clase
+        const elementos = document.getElementsByClassName('clase-1');
+        // Cambiar el texto de cada elemento
+        for (const elemento of elementos) {
+            elemento.textContent= 'jjj';
+            elemento.style.backgroundColor='red';   
+        }
+    </script>
+</body>
+</html>

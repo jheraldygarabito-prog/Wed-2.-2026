@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14 STOPROPAGATION </title>
+</head>
+<body>
+    <div id="Padre">Elemento padre
+        <div id="Hijo">Elemento hijo</div>
+    </div>
+    <script>
+        const elementoHijo=document.getElementById('Hijo');
+        elementoHijo.addEventListener('click', (event)=>{
+            event.stopPropagation();
+            alert('evento hijo');
+        });
+        const elementoPadre=document.getElementById('Padre');
+        elementoPadre.addEventListener('click',(event)=>{
+            alert('evento padre');
+        });
+    </script>
+</body>
+</html>

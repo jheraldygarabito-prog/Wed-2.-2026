@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 seleccion de elementos llamado por etiqueta </title>
+</head>
+<body>
+    <p>uno</p>
+    <p>dos</p>
+    <p>tres</p>
+    <p>cuatro</p>
+    <script>
+        const elementos = document.querySelectorAll('p');
+        elementos.forEach(elemento => {
+            elemento.style.backgroundColor = 'blue';
+            elemento.querySelector('p').style.color = 'white';
+            elemento.querySelector('p').style.fontSize = '20px';
+        });
+    </script>
+</body>
+</html>
+   
