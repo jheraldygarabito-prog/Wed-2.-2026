@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>CV - Mi portada</title>
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .cv-container {
+            width: 800px;
+            display: flex;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            background-color: #332d2d; 
+        }
+        .sidebar {
+            width: 35%;
+            background-color: #252121; 
+            color: white;
+            padding: 30px;
+        }
+        .main-content {
+            width: 65%;
+            background-color: #634f46; 
+            color: #f1f1f1;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <div class="sidebar">
+            <div class="foto-marco">
+                <img src="imagenes/foto.jpg" alt="Foto Jheraldy" class="foto-cv">
+            </div>
+
+            <div class="seccion-lateral">
+                <h3>DATOS</h3>
+                <p>👤 18 años</p>
+                <p>🇧🇴 Nacionalidad: Bolivia</p>
+                <p>📅 23 de mayo de 2007</p>
+                <p>📞 +591 67955303</p>
+            </div>
+
+            <div class="seccion-lateral">
+                <h3>CONOCIMIENTOS</h3>
+                <ul>
+                    <li>HTML / CSS</li>
+                    <li>Programación</li>
+                    <li>Soluciones Matemáticas</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <h1 style="font-size: 35px; text-transform: uppercase; margin-bottom: 5px;">Jheraldy Garabito</h1>
+            <h2 style="color: #d2b48c; font-weight: 300; margin-top: 0;">ING. EN SISTEMAS</h2>
+
+            <div class="info-bloque">
+                <h3>PERFIL PERSONAL</h3>
+                <p>Estudiante del 3er semestre con conocimientos básicos de programación, Capacidad de resolución de problemas y aprendizaje continuo.</p>
+            </div>
+
+            <div class="info-bloque">
+                <h3>EDUCACIÓN</h3>
+                <p><strong>Universidad del Valle</strong><br>Fundamentos de Software (Estudiante)</p>
+            </div>
+
+            <div class="info-bloque">
+                <h3>INTERESES</h3>
+                <p>Futsal, Volleyball, Taekwondo, Escuchar música.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

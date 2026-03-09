@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/* Variables Optimizadas - Estilo Cyber-Vaporwave */
+:root {
+    --color-fondo: #0a0118;        /* Morado casi negro */
+    --color-texto: #ffffff;        /* Blanco puro */
+    --color-acento: hsl(174, 67%, 49%);       /* Rosa Neón */
+    --color-secundario: #9719a8;   /* Cian Neón */
+    --color-botones: #1a0b2e;      /* Morado oscuro para botones */
+    --color-borde-hover: #6a0f0f;
+
+    --fuente-titulo: 'Krona One', sans-serif;
+    --fuente-cuerpo: 'Montserrat', sans-serif;
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reseteo y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    /* Añadimos un ligero degradado de fondo para profundidad */
+    background-image: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #0a0118 100%);
+    color: var(--color-texto);
+    font-family: var(--fuente-cuerpo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header y Navegación */
+.header {
+    padding: 2.5rem 10%;
+}
+
+.header__menu {
+    display: flex;
+    gap: 3rem;
+}
+
+.header__menu__link {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+    transition: var(--transition);
+}
+
+.header__menu__link:hover {
+    color: var(--color-secundario);
+}
+
+.header__menu__link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-secundario);
+    transition: var(--transition);
+}
+
+.header__menu__link:hover::after {
+    width: 100%;
+}
+
+/* Sección Presentación */
+.presentacion {
+    padding: 5% 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+    flex: 1;
+}
+
+.presentacion__contenido {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.presentacion__contenido__titulo {
+    font-family: var(--fuente-titulo);
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.titulo-destaque {
+    color: var(--color-acento);
+    /* Efecto de brillo neón rosa */
+    text-shadow: 0 0 15px rgba(255, 0, 193, 0.6);
+}
+
+.presentacion__contenido__texto {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Estilo de la Imagen */
+.presentacion__imagen {
+    width: 40%;
+    max-width: 450px;
+    border-radius: 20px;
+    transition: var(--transition);
+    /* Sombra con el color secundario (Cian) */
+    box-shadow: 15px 15px 0px var(--color-secundario);
+}
+
+.presentacion__imagen:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 20px 20px 0px var(--color-acento);
+}
+
+/* Enlaces y Botones */
+.presentacion__enlaces {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 375px;
+}
+
+.presentacion__enlaces__subtitulo {
+    font-family: var(--fuente-titulo);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-secundario);
+}
+
+.presentacion__enlaces__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-weight: 600;
+    border: 2px solid var(--color-acento);
+    border-radius: 10px;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.presentacion__enlaces__link:hover {
+    background-color: var(--color-acento);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(255, 0, 193, 0.4);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-botones);
+    color: var(--color-secundario);
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    border-top: 1px solid var(--color-secundario);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .presentacion {
+        flex-direction: column-reverse;
+        padding: 10%;
+        text-align: center;
+        gap: 3rem;
+    }
+    .presentacion__contenido { width: 100%; }
+    .presentacion__imagen { width: 60%; }
+    .header__menu { justify-content: center; }
+}
