@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título de tu Página | Nombre de Marca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/head.css">
+    <link rel="stylesheet" href="assets/css/pagina.css">
+    <link rel="stylesheet" href="assets/css/elemento.css">
+    <link rel="stylesheet" href="assets/css/mensaje.css">
+    <link rel="stylesheet" href="assets/css/nosotros.css">
+    <link rel="stylesheet" href="assets/css/producto.css">
+    <link rel="stylesheet" href="assets/css/contacto.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    
+</head>
+<body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="head" role="banner">
+        <a href="index.html" class="head__brand" aria-label="Inicio">
+            <img class="head__logo" src="assets/img/logo.png" alt="Logotipo de mi Empresa">
+        </a>
+        <button class="head__toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Abrir menú">
+            <span class="head__toggle-bar" aria-hidden="true"></span>
+            <span class="head__toggle-bar" aria-hidden="true"></span>
+            <span class="head__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="head__nav" id="primary-navigation" role="navigation">
+            <ul class="head__list">
+                <li class="head__item"><a class="head__link" href="#">Inicio</a></li>
+                <li class="head__item"><a class="head__link" href="#">Portada</a></li>
+                <li class="head__item"><a class="head__link" href="#">Sección 1</a></li>
+                <li class="head__item"><a class="head__link" href="#">Sección 2</a></li>
+                <li class="head__item"><a class="head__link" href="#">Sección 3</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+      (function(){
+        const btn = document.querySelector('.head__toggle');
+        const nav = document.getElementById('primary-navigation');
+        if(!btn || !nav) return;
+        btn.addEventListener('click', ()=>{
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          nav.classList.toggle('is-open');
+          document.body.classList.toggle('nav-open', !open);
+        });
+      })();
+    </script>
+
+    <main id="main" tabindex="-1">
+        <section class="pagina">
+            <h1 class="pagina__titulo">Título de mi página</h1>
+            <p class="pagina__desc">Descripción estratégica de mi página web para captar atención.</p>
+            <a class="pagina__boton" href="#">Información de botón</a>
+        </section>
+
+        <section class="elemento">
+            <h2 class="elemento__titulo">Elemento Destacado</h2>
+            <article class="elemento__card">
+                <a href="#" class="elemento__enlace">
+                    <figure class="elemento__figura">
+                        <img class="elemento__figura--imagen" src="assets/img/prod1.jpg" alt="Descripción visual del producto">
+                        <figcaption class="elemento__figura--texto">Texto descriptivo de la imagen</figcaption>
+                    </figure>
+                </a>
+                <a class="elemento__boton" href="#">Más detalles</a>
+            </article>
+        </section>
+
+        <section class="mensaje">
+            <ul class="mensaje__lista">
+                <li class="mensaje__item">
+                    <h2 class="mensaje__item__titulo">Mensaje 1</h2>
+                    <p class="mensaje__item__texto">Texto persuasivo del primer mensaje.</p>
+                </li>
+                <li class="mensaje__item">
+                    <h2 class="mensaje__item__titulo">Mensaje 2</h2>
+                    <p class="mensaje__item__texto">Texto persuasivo del segundo mensaje.</p>
+                </li>
+                <li class="mensaje__item">
+                    <h2 class="mensaje__item__titulo">Mensaje 3</h2>
+                    <p class="mensaje__item__texto">Texto persuasivo del tercer mensaje.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="nosotros">
+            <div class="nosotros__container">
+                <div class="nosotros__contenido">
+                    <h2 class="nosotros__titulo">Sobre nosotros</h2>
+                    <p class="nosotros__texto">Somos una empresa dedicada a dar soluciones creativas y profesionales.</p>
+                </div>
+                <img class="nosotros__imagen" src="assets/img/perfil1.jpg" alt="Nuestro equipo de trabajo">
+            </div>
+        </section>
+
+        <section class="producto">
+            <h2 class="producto__titulo">Nuestros Productos</h2>
+            <ul class="producto__lista">
+                <li class="card card--prod1">
+                    <article class="card__contenido">
+                        <h3 class="card__titulo">Producto Premium</h3>
+                        <p class="card__precio">$4,000</p>
+                        <p class="card__desc">Descripción breve y clara de lo que ofrece este producto.</p>
+                        <a class="card__boton" href="#">Ver producto</a>
+                    </article>
+                </li>
+                <li class="card card--prod1">
+                    <article class="card__contenido">
+                        <h3 class="card__titulo">Producto Estándar</h3>
+                        <p class="card__precio">$2,500</p>
+                        <p class="card__desc">Descripción breve y clara de lo que ofrece este producto.</p>
+                        <a class="card__boton" href="#">Ver producto</a>
+                    </article>
+                </li>
+                <li class="card card--prod1">
+                    <article class="card__contenido">
+                        <h3 class="card__titulo">Producto Básico</h3>
+                        <p class="card__precio">$1,200</p>
+                        <p class="card__desc">Descripción breve y clara de lo que ofrece este producto.</p>
+                        <a class="card__boton" href="#">Ver producto</a>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+        <section class="contacto">
+            <h2 class="contacto__titulo">Contacto</h2>
+            <div class="contacto__layout">
+                <div class="contacto__info">
+                    <p class="contacto__descripcion">Estamos listos para ayudarte. Escríbenos o visítanos.</p>
+                    <address class="contacto__detalle">
+                        Email: contacto@ejemplo.com
+                    </address>
+                </div>
+                <img class="contacto__imagen" src="assets/img/prod3.jpg" alt="Ubicación o contacto">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <img class="footer__logo" src="assets/img/logo.png" alt="Logotipo al pie de página">
+            <nav class="footer__nav">
+                <ul class="footer__list">
+                    <li class="footer__link"><a href="#">inicio</a></li>
+                    <li class="footer__link"><a href="#">portada</a></li>
+                    <li class="footer__link"><a href="#">seccion1</a></li>
+                    <li class="footer__link"><a href="#">seccion2</a></li>
+                    <li class="footer__link"><a href="#">seccion3</a></li>
+                </ul>
+            </nav>
+            <p class="footer__copyright">&copy; 2024 Mi Marca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<script>
+// Navegación y botones con href="#": scroll suave a secciones sin cambiar estructura
+(function(){
+  const mapTextToSelector = (txt)=>{
+    switch(txt){
+      case 'inicio': return '#main';
+      case 'portada': return '.pagina';
+      case 'sección 1': return '.elemento';
+      case 'sección 2': return '.mensaje';
+      case 'sección 3': return '.nosotros';
+      case 'información de botón': return '.producto';
+      case 'más detalles': return '.producto';
+      case 'ver producto': return '.contacto';
+      default: return null;
+    }
+  };
+
+  const closeMenuIfOpen = ()=>{
+    const btn = document.querySelector('.head__toggle');
+    const nav = document.getElementById('primary-navigation');
+    if(btn && nav && nav.classList.contains('is-open')){
+      btn.setAttribute('aria-expanded','false');
+      nav.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
+    }
+  };
+
+  document.addEventListener('click', function(e){
+    const a = e.target.closest('a[href="#"]');
+    if(!a) return;
+    const txt = (a.textContent || '').trim().toLowerCase();
+    const sel = mapTextToSelector(txt);
+    if(sel){
+      e.preventDefault();
+      const el = document.querySelector(sel);
+      if(el){
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        closeMenuIfOpen();
+      }
+    }
+  }, {passive:false});
+})();
+</script>
+</body>
+</html>

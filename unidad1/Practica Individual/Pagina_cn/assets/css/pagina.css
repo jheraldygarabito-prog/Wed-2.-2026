@@ -1,0 +1,53 @@
+.pagina{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-fg, #e6edf6);
+    background: radial-gradient(1000px 450px at 50% -20%, rgba(76,201,240,.25), transparent 60%),
+                linear-gradient(180deg, #111827, #0b132b 55%);
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+}
+.pagina__titulo{
+    font-family: 'Montserrat',sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.pagina__desc{
+    font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-transform: none;
+    opacity: .92;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    max-width: 62ch;
+}
+.pagina__boton{
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+    width: min(420px, 80%);
+    padding: .9rem 1.2rem;
+    border: none;
+    color: #0b1c20;
+    background: linear-gradient(90deg, var(--color-accent, #4cc9f0), var(--color-accent-2, #f72585));
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(0,0,0,.25);
+    transition: transform .12s ease, filter .15s ease, box-shadow .15s ease;
+}
+.pagina__boton:hover{ filter: brightness(1.05); transform: translateY(-1px); }
+.pagina__boton:active{ transform: translateY(0); }
+
+@media screen and (min-width:750px){
+    .pagina{
+        background-image: url('../img/port1.jpg');
+        background-size: cover;
+        background-blend-mode: overlay;
+        padding-top: 8rem;
+    }
+}

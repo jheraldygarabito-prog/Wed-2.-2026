@@ -1,0 +1,15 @@
+/* Layout helpers (sin cambiar HTML) */
+
+/* Correcciones de layout mobile-first */
+@media (max-width: 980px){
+  .headerPrincipal-nav{ justify-content: center; }
+}
+
+@media (max-width: 680px){
+  .rodapePrincipal-navMap-list{ grid-template-columns: repeat(3,minmax(0,1fr)); }
+}
+@media (max-width: 520px){
+  .rodapePrincipal-navMap-list{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .rodapePrincipal-patrocinadores-list{ justify-content: center; flex-wrap: wrap; }
+  .rodapePrincipal-contatoForm-fieldset{ flex-direction: column; }
+}

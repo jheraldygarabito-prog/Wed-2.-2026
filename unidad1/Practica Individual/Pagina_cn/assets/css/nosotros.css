@@ -1,0 +1,45 @@
+/* Sección Nosotros */
+.nosotros{
+  padding: 3rem 1rem;
+}
+.nosotros__container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nosotros__titulo{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 .75rem;
+  color: var(--color-accent, #4cc9f0);
+  text-shadow: 0 2px 10px rgba(0,0,0,.45);
+}
+
+.nosotros__texto{
+  font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  opacity: .98;
+  margin: 0;
+  color: #000000; /* solicitado: negro */
+  text-shadow: none;
+}
+
+.nosotros__imagen{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+@media (max-width: 900px){
+  .nosotros__container{ grid-template-columns: 1fr; }
+  .nosotros__imagen{ order: -1; }
+}
