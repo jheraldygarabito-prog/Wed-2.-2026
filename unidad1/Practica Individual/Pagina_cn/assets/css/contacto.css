@@ -1,0 +1,51 @@
+/* Sección Contacto */
+.contacto{
+  padding: 3rem 1rem;
+}
+.contacto__titulo{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-fg, #eaf2f8);
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.contacto__layout{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contacto__info{
+  background: rgba(15, 33, 36, .65);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.18);
+}
+.contacto__descripcion{ margin: 0 0 .5rem; line-height: 1.6; }
+.contacto__detalle{ font-style: normal; opacity: .9; }
+
+.contacto__imagen{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+}
+
+@media (max-width: 900px){
+  .contacto__layout{ grid-template-columns: 1fr; }
+}
+
+/* Forzar mayor visibilidad de títulos en Nosotros y Contacto */
+.nosotros__titulo,
+.contacto__titulo{
+  color: var(--color-accent, #4cc9f0) !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.45);
+}
