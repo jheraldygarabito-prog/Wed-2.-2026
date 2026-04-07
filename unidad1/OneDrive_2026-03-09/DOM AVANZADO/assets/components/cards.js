@@ -4,16 +4,17 @@ const cards = (() => {
     const taskCards = document.getElementById('taskCards');
 
     const update = () => {
-        const tasks = tabla.getTask(); // Obtenemos todas las tareas de la tabla
+        // Obtenemos todas las tareas que están en la tabla.
+        const tasks = tabla.getTask();
         taskCards.innerHTML = ''; // Limpiamos el contenedor antes de redibujar
 
         tasks.forEach((task) => {
             const card = document.createElement('div');
             
-            // Aplicamos la clase de completado si corresponde
+            // Añade clase de tarjeta completada si ya se marcó como terminada.
             card.className = `taskCard ${task.isCompleted ? 'completed-card' : ''}`;
             
-            // AQUÍ AGREGAMOS LOS 7 CAMPOS
+            // Crea el HTML de la tarjeta con todos los campos.
             card.innerHTML = `
                 <h4>${task.isCompleted ? '✅' : '🚀'} ${task.task}</h4>
                 <p><strong>Descripción:</strong> ${task.description}</p>
