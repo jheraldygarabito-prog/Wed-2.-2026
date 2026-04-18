@@ -1,0 +1,20 @@
+[
+  {
+    "task": "Comprar materiales",
+    "description": "Comprar pintura y pinceles para el proyecto.",
+    "date": "2026-04-10",
+    "priority": "Alta",
+    "categoria": "Trabajo",
+    "ubicacion": "Tienda",
+    "asignado": "Ana"
+  },
+  {
+    "task": "Enviar informe",
+    "description": "Enviar el informe semanal al profesor.",
+    "date": "2026-04-08",
+    "priority": "Media",
+    "categoria": "Estudio",
+    "ubicacion": "Casa",
+    "asignado": "Carlos"
+  }
+]

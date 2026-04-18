@@ -1,6 +1,7 @@
  const deleteIcon=()=>{
         const i=document.createElement('i');
-        i.classList.add('fas','fa-trash-alt','transition','icon'); 
+        i.classList.add('fas','fa-trash-alt','transition','icon');
+        i.classList.Color='red'; 
         i.addEventListener('click',deleteTask);
         return i;
 

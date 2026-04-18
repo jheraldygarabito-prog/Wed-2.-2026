@@ -39,7 +39,7 @@ main {
     outline: none; 
 }
 
-.btnCreate {
+.btnCreate, .btnLoad {
     grid-column: 1 / -1; 
     padding: 12px; 
     background: #5d34ec; 
@@ -51,7 +51,11 @@ main {
     transition: background 0.3s;
 }
 
-.btnCreate:hover { background: #4a29c4; }
+.btnLoad {
+    margin-bottom: 12px;
+}
+
+.btnCreate:hover, .btnLoad:hover { background: #4a29c4; }
 
 .contentContainer { 
     width: 95vw; 
