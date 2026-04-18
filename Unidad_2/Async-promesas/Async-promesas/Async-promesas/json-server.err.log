@@ -1,0 +1,21 @@
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:2016:16)
+    at listenInCluster (node:net:2073:12)
+    at Server.listen (node:net:2178:7)
+    at App.listen (file:///C:/Users/Usuario/AppData/Roaming/npm/node_modules/json-server/node_modules/@tinyhttp/app/dist/app.js:323:58)
+    at file:///C:/Users/Usuario/AppData/Roaming/npm/node_modules/json-server/lib/bin.js:133:5
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:2052:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v25.6.1

@@ -1,4 +1,4 @@
-import { petService } from "../service/pet-service.js";
+import { petService } from "../service/animales-service.js";
 
 const formulario = document.querySelector('[data-form-pet]');
 

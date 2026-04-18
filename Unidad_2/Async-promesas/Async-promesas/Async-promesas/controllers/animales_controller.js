@@ -1,4 +1,4 @@
-import { petService } from "../service/pet-service.js";
+import { petService } from "../service/animales-service.js";
 
 const crearFilaMascota = async (nombre, edad, raza, peso, dueñoId, id) => {
     const fila = document.createElement('tr');
@@ -21,7 +21,7 @@ const crearFilaMascota = async (nombre, edad, raza, peso, dueñoId, id) => {
             <ul class="table__button-control">
                 <li>
                     <a
-                        href="../screens/editar_pet.html?id=${id}"
+                        href="../screens/editar_aniamles.html?id=${id}"
                         class="simple-button simple-button--edit"
                     >
                     Editar
