@@ -1,0 +1,28 @@
+{
+  "perfil": [
+    {
+      "id": "1",
+      "nombre": "Juan Pérez",
+      "email": "juan@ejemplo.com"
+    }
+  ],
+  "mascotas": [
+    {
+      "id": "1",
+      "nombre": "Firulais",
+      "edad": "3 años",
+      "raza": "Golden Retriever",
+      "peso": "25kg",
+      "dueñoId": "1"
+    }
+  ],
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Cama para perro",
+      "precio": "50.00",
+      "descripcion": "Cama acolchada tamaño XL"
+    }
+    
+  ]
+}
