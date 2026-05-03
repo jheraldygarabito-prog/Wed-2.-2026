@@ -1,28 +1,51 @@
 
+const URL_SUPABASE = "https://qbmggmwqjlkdtnmslryh.supabase.co";
+const SUPABASE_KEY = "sb_publishable_IyqD2WQUWUotagoVzIc25A_yZGGjQJ-9";
+const table = "productos";
+const API_URL = `${URL_SUPABASE}/rest/v1/${table}`;
+
+const HEADERS = {
+    'apikey': SUPABASE_KEY,
+    'Authorization': `Bearer ${SUPABASE_KEY}`,
+    'Content-Type': 'application/json',
+    'Prefer': 'return=representation'
+};
+
+const request = async(url, option = {}) => {
+    const res = await fetch(url, { headers: HEADERS, ...option });
+    const text = await res.text();
+    const data = text && JSON.parse(text);
+
+    if(!res.ok){
+        const mensaje = data?.mensaje ?? data?.error?.message ?? text ?? 'Error';
+        throw new Error(mensaje);
+    }
+    return data;
+};
+
 const listaProductos = () => 
-    fetch("http://localhost:3000/productos").then(respuesta => respuesta.json());
+    request(`${API_URL}?select=id,nombre,precio,descripcion`);
 
 const crearProducto = (nombre, precio, descripcion) => {
-    return fetch("http://localhost:3000/productos", {
+    return request(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, precio, descripcion, id: uuid.v4() })
     });
 };
 
 const eliminarProducto = (id) => {
-    return fetch(`http://localhost:3000/productos/${id}`, {
+    return request(`${API_URL}?id=eq.${id}`, {
         method: "DELETE"
     });
 };
 
 const detalleProducto = (id) => 
-    fetch(`http://localhost:3000/productos/${id}`).then(respuesta => respuesta.json());
+    request(`${API_URL}?id=eq.${id}&select=id,nombre,precio,descripcion`)
+    .then((data) => data?.[0] ?? Promise.reject(new Error('Producto no encontrado')));
 
 const actualizarProducto = (nombre, precio, descripcion, id) => {
-    return fetch(`http://localhost:3000/productos/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+    return request(`${API_URL}?id=eq.${id}`, {
+        method: "PATCH",
         body: JSON.stringify({ nombre, precio, descripcion })
     });
 };

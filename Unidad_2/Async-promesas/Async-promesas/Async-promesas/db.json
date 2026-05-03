@@ -36,6 +36,5 @@
       "precio": "50.00",
       "descripcion": "Cama acolchada tamaño XL"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
