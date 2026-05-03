@@ -1,52 +1,49 @@
+const API_URL = "http://localhost:3000/productos";
 
-const URL_SUPABASE = "https://qbmggmwqjlkdtnmslryh.supabase.co";
-const SUPABASE_KEY = "sb_publishable_IyqD2WQUWUotagoVzIc25A_yZGGjQJ-9";
-const table = "productos";
-const API_URL = `${URL_SUPABASE}/rest/v1/${table}`;
+const request = async (url, options = {}) => {
+    const respuesta = await fetch(url, {
+        ...options,
+        headers: {
+            "Content-Type": "application/json",
+            ...options.headers,
+        },
+    });
 
-const HEADERS = {
-    'apikey': SUPABASE_KEY,
-    'Authorization': `Bearer ${SUPABASE_KEY}`,
-    'Content-Type': 'application/json',
-    'Prefer': 'return=representation'
-};
+    const text = await respuesta.text();
+    const data = text ? JSON.parse(text) : null;
 
-const request = async(url, option = {}) => {
-    const res = await fetch(url, { headers: HEADERS, ...option });
-    const text = await res.text();
-    const data = text && JSON.parse(text);
-
-    if(!res.ok){
-        const mensaje = data?.mensaje ?? data?.error?.message ?? text ?? 'Error';
-        throw new Error(mensaje);
+    if (!respuesta.ok) {
+        throw new Error(data?.message ?? text ?? "Error");
     }
+
     return data;
 };
 
-const listaProductos = () => 
-    request(`${API_URL}?select=id,nombre,precio,descripcion`);
+const listaProductos = () => {
+    return request(API_URL);
+};
 
 const crearProducto = (nombre, precio, descripcion) => {
     return request(API_URL, {
         method: "POST",
-        body: JSON.stringify({ nombre, precio, descripcion, id: uuid.v4() })
+        body: JSON.stringify({ nombre, precio, descripcion }),
     });
 };
 
 const eliminarProducto = (id) => {
-    return request(`${API_URL}?id=eq.${id}`, {
-        method: "DELETE"
+    return request(`${API_URL}/${id}`, {
+        method: "DELETE",
     });
 };
 
-const detalleProducto = (id) => 
-    request(`${API_URL}?id=eq.${id}&select=id,nombre,precio,descripcion`)
-    .then((data) => data?.[0] ?? Promise.reject(new Error('Producto no encontrado')));
+const detalleProducto = (id) => {
+    return request(`${API_URL}/${id}`);
+};
 
 const actualizarProducto = (nombre, precio, descripcion, id) => {
-    return request(`${API_URL}?id=eq.${id}`, {
+    return request(`${API_URL}/${id}`, {
         method: "PATCH",
-        body: JSON.stringify({ nombre, precio, descripcion })
+        body: JSON.stringify({ nombre, precio, descripcion }),
     });
 };
 

@@ -1,14 +1,14 @@
 import { petService } from "../service/animales-service.js";
 
-const crearFilaMascota = async (nombre, edad, raza, peso, dueñoId, id) => {
-    const fila = document.createElement('tr');
-    
-    let informacionDueño = "Cargando...";
+const crearFilaMascota = async (nombre, edad, raza, peso, duenoId, id) => {
+    const fila = document.createElement("tr");
+
+    let informacionDueno = "Cargando...";
     try {
-        const dueño = await petService.obtenerDueño(dueñoId);
-        informacionDueño = `${dueño.nombre} (${dueño.email})`;
+        const dueno = await petService.obtenerDueno(duenoId);
+        informacionDueno = `${dueno.nombre} (${dueno.email})`;
     } catch (evento) {
-        informacionDueño = "No encontrado";
+        informacionDueno = "No encontrado";
     }
 
     const contenido = `
@@ -16,7 +16,7 @@ const crearFilaMascota = async (nombre, edad, raza, peso, dueñoId, id) => {
         <td>${edad}</td>
         <td>${raza}</td>
         <td>${peso}</td>
-        <td>${informacionDueño}</td>
+        <td>${informacionDueno}</td>
         <td>
             <ul class="table__button-control">
                 <li>
@@ -36,23 +36,31 @@ const crearFilaMascota = async (nombre, edad, raza, peso, dueñoId, id) => {
         </td>
     `;
     fila.innerHTML = contenido;
-    
+
     const btn = fila.querySelector("button");
     btn.addEventListener("click", () => {
         const idMascota = btn.id;
-        petService.eliminarMascota(idMascota).then(respuesta => {
+        petService.eliminarMascota(idMascota).then(() => {
             alert("Mascota eliminada");
             window.location.reload();
-        }).catch(error => alert("Error al eliminar"));
+        }).catch(() => alert("Error al eliminar"));
     });
-    
+
     return fila;
-}
+};
 
 const table = document.querySelector("[data-table-pets]");
+
 petService.listaMascotas().then((data) => {
     data.forEach(async (pet) => {
-        const nuevaFila = await crearFilaMascota(pet.nombre, pet.edad, pet.raza, pet.peso, pet.dueñoId, pet.id);
+        const nuevaFila = await crearFilaMascota(
+            pet.nombre,
+            pet.edad,
+            pet.raza,
+            pet.peso,
+            pet.duenoId,
+            pet.id
+        );
         table.appendChild(nuevaFila);
     });
-});
+}).catch(() => alert("Error al cargar mascotas"));

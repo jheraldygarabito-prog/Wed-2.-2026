@@ -16,15 +16,9 @@
         <nav>
             <ul class="header__list-nav">
                 <li class="header__link"><a href="#">Dashboard</a></li>
-                <li class="header__link">
-                    <a href="./lista_productos.html">Productos</a>
-                </li>
-                <li class="header__link">
-                    <a href="./lista_cliente.html">Clientes </a>
-                </li>
-                <li class="header__link">
-                    <a href="./lista_animales.html">Pets</a>
-                </li>
+                <li class="header__link"><a href="./lista_productos.html">Productos</a></li>
+                <li class="header__link"><a href="./lista_cliente.html">Clientes</a></li>
+                <li class="header__link"><a href="./lista_animales.html">Pets</a></li>
             </ul>
         </nav>
     </header>
@@ -49,14 +43,15 @@
                     <label class="input-label" for="peso">Peso</label>
                 </div>
                 <div class="input-container">
-                    <input name="dueñoId" id="dueñoId" class="input" type="text" placeholder="ID del Dueño" required data-dueño-id />
-                    <label class="input-label" for="dueñoId">ID del Dueño (Cliente)</label>
+                    <select name="duenoId" id="duenoId" class="input" required data-dueno-id>
+                        <option value="">Selecciona un cliente</option>
+                    </select>
+                    <label class="input-label" for="duenoId">Dueno</label>
                 </div>
                 <button type="submit" class="button">Registrar Mascota</button>
             </form>
         </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <script type="module" src="../controllers/registro_animales_controller.js"></script>
 </body>
 </html>

@@ -1,58 +1,56 @@
-﻿const URL_SUPABASE = "https://qbmggmwqjlkdtnmslryh.supabase.co";
-const SUPABASE_KEY = "sb_publishable_IyqD2WQUWUotagoVzIc25A_yZGGjQJ-9";
-const table = "mascota";
-const API_URL = `${URL_SUPABASE}/rest/v1/${table}`;
-const TABLE_CLIENTES = `${URL_SUPABASE}/rest/v1/clientes`;
+const API_URL = "http://localhost:3000/mascota";
+const CLIENTES_URL = "http://localhost:3000/clientes";
 
-const HEADERS = {
-    'apikey': SUPABASE_KEY,
-    'Authorization': `Bearer ${SUPABASE_KEY}`,
-    'Content-Type': 'application/json',
-    'Prefer': 'return=representation'
-};
+const request = async (url, options = {}) => {
+    const respuesta = await fetch(url, {
+        ...options,
+        headers: {
+            "Content-Type": "application/json",
+            ...options.headers,
+        },
+    });
 
-const request = async(url, option = {}) => {
-    const res = await fetch(url, { headers: HEADERS, ...option });
-    const text = await res.text();
-    const data = text && JSON.parse(text);
+    const text = await respuesta.text();
+    const data = text ? JSON.parse(text) : null;
 
-    if(!res.ok){
-        const mensaje = data?.mensaje ?? data?.error?.message ?? text ?? 'Error';
-        throw new Error(mensaje);
+    if (!respuesta.ok) {
+        throw new Error(data?.message ?? text ?? "Error");
     }
+
     return data;
 };
 
-const listaMascotas = () => 
-    request(`${API_URL}?select=id,nombre,edad,raza,peso,duenoId`);
+const listaMascotas = () => {
+    return request(API_URL);
+};
 
 const crearMascota = (nombre, edad, raza, peso, duenoId) => {
     return request(API_URL, {
         method: "POST",
-        body: JSON.stringify({ nombre, edad, raza, peso, duenoId, id: uuid.v4() })
+        body: JSON.stringify({ nombre, edad, raza, peso, duenoId }),
     });
 };
 
 const eliminarMascota = (id) => {
-    return request(`${API_URL}?id=eq.${id}`, {
-        method: "DELETE"
+    return request(`${API_URL}/${id}`, {
+        method: "DELETE",
     });
 };
 
-const detalleMascota = (id) => 
-    request(`${API_URL}?id=eq.${id}&select=id,nombre,edad,raza,peso,duenoId`)
-    .then((data) => data?.[0] ?? Promise.reject(new Error('Mascota no encontrada')));
+const detalleMascota = (id) => {
+    return request(`${API_URL}/${id}`);
+};
 
 const actualizarMascota = (nombre, edad, raza, peso, duenoId, id) => {
-    return request(`${API_URL}?id=eq.${id}`, {
+    return request(`${API_URL}/${id}`, {
         method: "PATCH",
-        body: JSON.stringify({ nombre, edad, raza, peso, duenoId })
+        body: JSON.stringify({ nombre, edad, raza, peso, duenoId }),
     });
 };
 
-const obtenerDueno = (idDueno) => 
-    request(`${TABLE_CLIENTES}?id=eq.${idDueno}&select=id,nombre,email`)
-    .then((data) => data?.[0] ?? Promise.reject(new Error('Dueno no encontrado')));
+const obtenerDueno = (idDueno) => {
+    return request(`${CLIENTES_URL}/${idDueno}`);
+};
 
 export const petService = {
     listaMascotas,
@@ -60,5 +58,5 @@ export const petService = {
     eliminarMascota,
     detalleMascota,
     actualizarMascota,
-    obtenerDueno
+    obtenerDueno,
 };
